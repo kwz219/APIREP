@@ -12,7 +12,11 @@ class opt(object):
 class modelopt(object):
     def __init__(self):
         self.gpu_ranks = 0
-
+def test_loadcheckpoint(filepath):
+    file_path = ""
+    checkpoint = load_checkpoint(file_path)
+    print(checkpoint)
+    print(checkpoint["opt"])
 def test_loadpretrain(file_path,modelopt,opt):
     checkpoint=load_checkpoint(file_path)
     print(checkpoint)
@@ -20,7 +24,3 @@ def test_loadpretrain(file_path,modelopt,opt):
     model = build_model(modelopt, opt, checkpoint)
     print(model.count_parameters())
 
-file_path=""
-checkpoint = load_checkpoint(file_path)
-print(checkpoint)
-print(checkpoint["opt"])
